@@ -17,7 +17,7 @@ public class JmsConsumer {
 	public void receive(com.message.activemq.model.TrainDetails trainDetails) {
 		System.out.println("Received Message: " + trainDetails);
 		
-		if(trainDetails.getCurrentLocation().get(0).equalsIgnoreCase(trainDetails.getOriginStationCd())) {
+		if(trainDetails.getCurrentLocation().size()==1) {
 			trainDetailsRepository.save(new TrainDetails(
 					trainDetails.getTrainNumber(), trainDetails.getTrainName(), 
 					trainDetails.getArrivalTime(), trainDetails.getDepartureTime(), 
