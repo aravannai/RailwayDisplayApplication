@@ -1,0 +1,13 @@
+package com.train.details;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class TrainDetailsApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
