@@ -1,0 +1,31 @@
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Train Number</th>
+                <th>Train Name</th>
+                <th>Arrival Date</th>
+                <th>Departure Date</th>
+                <th>OriginStationCd</th>
+                <th>DestinationStationCd</th>
+                <th>Current Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{trains.trainNumber}}</td>
+                <td>{{trains.trainName}}</td>
+                <td>{{trains.arrivalTime}}</td>
+                <td>{{trains.departureTime}}</td>
+                <td>{{trains.originStationCd}}</td>
+                <td>{{trains.destinationStationCd}}</td>
+                <td *ngFor="let location of trains.currentLocation">
+                    {{location}}
+                </td>
+                <!-- <td><button (click)="updateTodo(todo.id)" class="btn btn-success">Update</button></td>
+                <td><button (click)="deleteTodo(todo.id)" class="btn btn-warning">Delete</button></td> -->
+            </tr>
+        </tbody>
+
+    </table>
+</div>

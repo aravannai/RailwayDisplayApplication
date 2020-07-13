@@ -1,0 +1,18 @@
+<h1>Register!</h1>
+
+<div class="container">
+    <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+</div>
+
+<div class="container">
+    <form (ngSubmit)="!userForm.invalid && saveUser()" #userForm="ngForm">
+       
+    First Name: <input type="text" name="firstName" [(ngModel)]="firstName">
+    Last Name: <input type="text" name="lastName" [(ngModel)]="lastName">
+    Mobile: <input type="mobile" name="mobile" [(ngModel)]="mobile">
+    UserName: <input type="text" name="username" [(ngModel)]="username">
+    Password: <input type="password" name="password" [(ngModel)]="password">
+    </form>
+
+<button type="submit" class="btn btn-success">Register</button>
+</div>

@@ -1,0 +1,33 @@
+<h1>Railway Dashboard</h1>
+<div class="container">
+    <table class="table">
+        
+        <thead>
+            <tr>
+                <th>Train Number</th>
+                <th>Train Name</th>
+                <th>Arrival Date</th>
+                <th>Departure Date</th>
+                <th>OriginStationCd</th>
+                <th>DestinationStationCd</th>
+                <th>Current Location</th>
+    <!--Add a column to check the status later-->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let trains of trainDetails">
+                <td>{{trains.trainNumber}}</td>
+                <td>{{trains.trainName}}</td>
+                <td>{{trains.arrivalDate}}</td>
+                <td>{{trains.departureDate}}</td>
+                <td>{{trains.originStationCd}}</td>
+                <td>{{trains.destinationstationCd}}</td>
+                <td *ngFor="let location of trains.currentLocation">
+                    {{location}}
+                </td>
+                <!-- <td><button (click)="updateTodo(todo.id)" class="btn btn-success">Update</button></td>
+                <td><button (click)="deleteTodo(todo.id)" class="btn btn-warning">Delete</button></td> -->
+            </tr>
+        </tbody>
+    </table>
+    </div>
