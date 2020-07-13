@@ -5,5 +5,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import com.train.details.entity.TrainDetails;
 
 public interface TrainDetailsRepository extends MongoRepository<TrainDetails, Integer> {
-	TrainDetails findByTrainName(String trainName);	
+	TrainDetails findByTrainNumberAndTrainName(int trainNumber, String trainName);	
 }

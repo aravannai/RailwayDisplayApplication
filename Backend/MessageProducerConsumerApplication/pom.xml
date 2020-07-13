@@ -10,10 +10,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.message</groupId>
-	<artifactId>MessageConsumer</artifactId>
+	<artifactId>MessageProducerConsumerApplication</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>MessageConsumer</name>
-	<description>MessageConsumerCode</description>
+	<name>MessageProducerConsumerApplication</name>
+	<description>MessageProducerConsumerApplication</description>
 
 	<properties>
 		<java.version>1.8</java.version>

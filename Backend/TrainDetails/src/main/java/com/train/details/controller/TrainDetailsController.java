@@ -12,6 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.train.details.entity.TrainDetails;
 import com.train.details.service.TrainDetailsService;
 
+/**
+ * This is the rest controller class which is being exposed as microservice
+ * @author Sathish
+ *
+ */
 @CrossOrigin(origins="http://localhost:8083")
 @RestController
 @RequestMapping("/api/trainDetails")
@@ -25,13 +30,9 @@ public class TrainDetailsController {
 		return trainDetailsService.getAllDetails();
 	}
 	
-	@GetMapping("/searchByTrainNumber/{trainNumber}")
-	public TrainDetails searchByTrainNumber(@PathVariable("trainNumber") int trainNumber) {
-		return trainDetailsService.getByTrainNumber(trainNumber);
+	@GetMapping("/searchByTrainDetails/trainNumber/{trainNumber}/trainName/{trainName}")
+	public TrainDetails searchByTrainDetails(@PathVariable("trainNumber") int trainNumber, @PathVariable("trainName") String trainName) {
+		return trainDetailsService.getByTrainDetails(trainNumber, trainName);
 	}
 	
-	@GetMapping("/searchByTrainName/{trainName}")
-	public TrainDetails searchByTrainName(@PathVariable("trainName") String trainName) {
-		return trainDetailsService.findByTrainName(trainName);
-	}
 }

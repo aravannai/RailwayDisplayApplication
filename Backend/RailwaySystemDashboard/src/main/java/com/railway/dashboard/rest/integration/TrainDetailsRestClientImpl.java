@@ -24,7 +24,6 @@ public class TrainDetailsRestClientImpl implements TrainDetailsRestClient{
 	public List<TrainDetails> getAllDetails() {
 		RestTemplate restTemplate = new RestTemplate();
 		HttpHeaders headers = new HttpHeaders();
-//		headers.setContentType(MediaType.APPLICATION_JSON);
 		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 		HttpEntity<?> httpEntity = new HttpEntity<>(headers);
 		ResponseEntity<List<TrainDetails>> response = restTemplate
@@ -34,15 +33,17 @@ public class TrainDetailsRestClientImpl implements TrainDetailsRestClient{
 	}
 
 	@Override
-	public TrainDetails getByTrainNumber(int trainNumber) {
+	public TrainDetails findByTrainDetails(int trainNumber, String trainName) {
 		RestTemplate restTemplate = new RestTemplate();
-		return restTemplate.getForObject(TRAIN_DETAILS_STRING_URL + "/searchByTrainNumber/" + trainNumber, TrainDetails.class);
+		
+		TrainDetails trainDetails = restTemplate.getForObject(
+							TRAIN_DETAILS_STRING_URL + 
+							"/searchByTrainDetails/trainNumber/"
+									+trainNumber+"/trainName/"
+							+trainName, TrainDetails.class);
+		return trainDetails;
 	}
 
-	@Override
-	public TrainDetails findByTrainName(String trainName) {
-		RestTemplate restTemplate = new RestTemplate();
-		return restTemplate.getForObject(TRAIN_DETAILS_STRING_URL + "/searchByTrainNumber/" + trainName, TrainDetails.class);
-	}
+	
 
 }

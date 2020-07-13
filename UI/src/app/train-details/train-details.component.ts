@@ -11,36 +11,21 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class TrainDetailsComponent implements OnInit {
   trainNumber: number
   trainName: string
-  trains: TrainDetails
+  trainDetails: TrainDetails
   constructor(private trainDataService: TrainDataService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-
+    this.retrieveTrainDetails();
   }
 
-  retrieveTrainDetailsByNumber(){
+  retrieveTrainDetails(){
     this.trainNumber = this.route.snapshot.params['trainNumber'];
-    this.trains = new TrainDetails(this.trainNumber, '', new Date(), new Date(), '', '', [''])
-    if(this.trainNumber !=-1){
-      this.trainDataService.retrieveTrainByNumber(this.trainNumber).subscribe(
-        data => {
-          this.trains = data
-          this.router.navigate(['trainDetails'])
-        }
-        );
-    }
-  }
-
-  retrieveTrainDetailsByName(){
     this.trainName = this.route.snapshot.params['trainName'];
-    this.trains = new TrainDetails(-1, this.trainName, new Date(), new Date(), '', '', [''])
-    if(this.trainName != null){
-      this.trainDataService.retrieveTrainByName(this.trainName).subscribe(
+    this.trainDetails = new TrainDetails(this.trainNumber, this.trainName, new Date(), new Date(), '', '', [''])
+      this.trainDataService.retrieveTrainDetails(this.trainNumber, this.trainName).subscribe(
         data => {
-          this.trains = data
-          this.router.navigate(['trainDetails'])
-        }
-      );
-    }
+          this.trainDetails = data
+          }
+        );
   }
 }

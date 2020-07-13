@@ -15,9 +15,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent },
   {path: 'railwayDashboard', component: RailwayDashboardComponent, canActivate: [RouteGuardService]},
   {path: 'logout', component: LogoutComponent},
-  {path: 'searchByTrain/:trainNumber', component: SearchTrainComponent, canActivate:[RouteGuardService]},
-  {path: 'searchByTrain/:trainName', component: SearchTrainComponent, canActivate:[RouteGuardService]},
-  {path: 'trainDetails', component: TrainDetailsComponent, canActivate:[RouteGuardService]},
+  {path: 'searchTrains', component: SearchTrainComponent, canActivate:[RouteGuardService]},
+  {path: 'trainDetails/:trainNumber/:trainName', component: TrainDetailsComponent, canActivate:[RouteGuardService]},
   {path: 'register', component: RegisterComponent, canActivate:[RouteGuardService]},
   {path: '**', component: ErrorComponent}
 ];

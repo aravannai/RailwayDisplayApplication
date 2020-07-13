@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TrainDataService } from '../service/data/train-data.service';
 import { TrainDetails } from '../railway-dashboard/railway-dashboard.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-train',
@@ -9,24 +10,15 @@ import { TrainDetails } from '../railway-dashboard/railway-dashboard.component';
 })
 export class SearchTrainComponent implements OnInit {
 
-  trainDetails: TrainDetails
   trainName: string
-  trainNumber: string
-  constructor(private trainDataService: TrainDataService) { }
+  trainNumber: number
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  searchByTrainName(trainName){
-    this.trainDataService.retrieveTrainByName(trainName).subscribe(
-      response => this.trainDetails = response
-    );
-  }
-
-  searchByTrainNumber(trainNumber){
-    this.trainDataService.retrieveTrainByNumber(trainNumber).subscribe(
-      response => this.trainDetails = response
-    );
+  searchByTrainDetails(trainNumber, trainName){
+    this.router.navigate(['trainDetails', trainNumber, trainName])
   }
 
 

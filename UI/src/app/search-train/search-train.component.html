@@ -1,8 +1,8 @@
 <div class="container">
-Search by Train Number : <input type="text" name="trainNumber" [(ngModel)]="trainNumber" disabled="trainName.dirty">
-    <button (click)="searchByTrainNumber(trainNumber)" class="btn btn-success">Search</button>
-Or
-Search by Train Name: <input type="text" name="trainName" disabled="trainNumber.dirty" [(ngModel)]="trainName">
-    <button (click)="searchByTrainName(trainName)" class="btn btn-success">Search</button>
+Search by Train Number : <input type="number" name="trainNumber" [(ngModel)]="trainNumber" >
+    <br>And<br>
+Search by Train Name: <input type="text" name="trainName" [(ngModel)]="trainName">
+<br>
+    <button (click)="searchByTrainDetails(trainNumber, trainName)" class="btn btn-success">Search</button>
 
 </div>

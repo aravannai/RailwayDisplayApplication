@@ -7,6 +7,5 @@ import com.railway.dashboard.entity.TrainDetails;
 public interface TrainDetailsRestClient {
 
 	public List<TrainDetails> getAllDetails();
-	public TrainDetails getByTrainNumber(int trainNumber);
-	public TrainDetails findByTrainName(String trainName);
+	public TrainDetails findByTrainDetails(int trainNumber, String trainName);
 }

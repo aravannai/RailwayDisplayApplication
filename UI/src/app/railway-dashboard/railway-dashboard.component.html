@@ -6,10 +6,10 @@
             <tr>
                 <th>Train Number</th>
                 <th>Train Name</th>
-                <th>Arrival Date</th>
-                <th>Departure Date</th>
-                <th>OriginStationCd</th>
-                <th>DestinationStationCd</th>
+                <th>Arrival Time</th>
+                <th>Departure Time</th>
+                <th>OriginStation</th>
+                <th>DestinationStation</th>
                 <th>Current Location</th>
     <!--Add a column to check the status later-->
             </tr>
@@ -18,10 +18,10 @@
             <tr *ngFor="let trains of trainDetails">
                 <td>{{trains.trainNumber}}</td>
                 <td>{{trains.trainName}}</td>
-                <td>{{trains.arrivalDate}}</td>
-                <td>{{trains.departureDate}}</td>
+                <td>{{trains.arrivalTime | date}}</td>
+                <td>{{trains.departureTime | date}}</td>
                 <td>{{trains.originStationCd}}</td>
-                <td>{{trains.destinationstationCd}}</td>
+                <td>{{trains.destinationStationCd}}</td>
                 <td *ngFor="let location of trains.currentLocation">
                     {{location}}
                 </td>

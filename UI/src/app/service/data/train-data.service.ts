@@ -13,26 +13,9 @@ export class TrainDataService {
   retrieveAllTrains(){
     return this.http.get<TrainDetails[]>(`${API_URL}/api/listAllTrains`)
   }
-
-  // deleteTodos(userName, id){
-  //   return this.http.delete(`${TODO_JPA_API_URL}/users/${userName}/todos/${id}`)
-  // }
-
-  // updateTodo(userName, id, todo){
-  //   return this.http.
-  //         put<Todo>(`${TODO_JPA_API_URL}/users/${userName}/todos/${id}`, todo)
-  // }
-
-  retrieveTrainByNumber(trainNumber){
-    return this.http.get<TrainDetails>(`${API_URL}/api/searchByTrainNumber/${trainNumber}`)
+  retrieveTrainDetails(trainNumber, trainName){
+    return this.http.get<TrainDetails>(`${API_URL}/api/searchByTrainDetails/trainNumber/${trainNumber}/trainName/${trainName}`)
   }
 
-  retrieveTrainByName(trainName){
-    return this.http.get<TrainDetails>(`${API_URL}/api/searchByTrainNumber/${trainName}`)
-  }
-
-  // createTodo(userName, todo){
-  //   console.log(userName)
-  //   return this.http.post(`${TODO_JPA_API_URL}/users/${userName}/todos`, todo)
-  // }
+  
 }

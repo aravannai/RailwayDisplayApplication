@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { API_URL } from '../app.constants';
 import { Router } from '@angular/router';
 
-export class User{
+export class UserDetails{
   constructor(
     public firstName: string,
     public lastName: string,
@@ -27,26 +27,13 @@ export class RegisterComponent implements OnInit {
   password: string
   invalidLogin = false
   message: string
-  user: User
+  user: UserDetails
 
   errorMessage: 'Invalid credentials'
   
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
-  }
-
-  saveUser(){
-    return this.
-    http.
-    post<any>
-    (`${API_URL}/api/registerUser`, this.user)
-    .subscribe(response => {
-      console.log(response);
-        this.message=`Registeration of  ${this.user} successful!`;
-        this.router.navigate(['railwayDashboard', this.user]);
-    }
-    )
   }
 
 }

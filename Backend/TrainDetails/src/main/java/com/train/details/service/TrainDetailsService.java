@@ -8,26 +8,26 @@ import org.springframework.stereotype.Service;
 import com.train.details.entity.TrainDetails;
 import com.train.details.respository.TrainDetailsRepository;
 
+/**
+ * THis is the class which holds the service layer of Train Details
+ * @author Sathish
+ *
+ */
 @Service
 public class TrainDetailsService {
-
-
 
 	@Autowired
 	private TrainDetailsRepository trainDetailsRepository;
 	
 	public List<TrainDetails> getAllDetails() {
-		// TODO Auto-generated method stub
 		return trainDetailsRepository.findAll();
 	}
 
-	public TrainDetails getByTrainNumber(int trainNumber) {
-		return trainDetailsRepository.findById(trainNumber).get();
+	public TrainDetails getByTrainDetails(int trainNumber, String trainName) {
+		return trainDetailsRepository.findByTrainNumberAndTrainName(trainNumber,trainName);
 	}
+
 	
-	public TrainDetails findByTrainName(String trainName) {
-		return trainDetailsRepository.findByTrainName(trainName);
-	}
 
 	
 

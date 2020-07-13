@@ -6,20 +6,20 @@
                 <th>Train Name</th>
                 <th>Arrival Date</th>
                 <th>Departure Date</th>
-                <th>OriginStationCd</th>
-                <th>DestinationStationCd</th>
+                <th>OriginStation</th>
+                <th>DestinationStation</th>
                 <th>Current Location</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>{{trains.trainNumber}}</td>
-                <td>{{trains.trainName}}</td>
-                <td>{{trains.arrivalTime}}</td>
-                <td>{{trains.departureTime}}</td>
-                <td>{{trains.originStationCd}}</td>
-                <td>{{trains.destinationStationCd}}</td>
-                <td *ngFor="let location of trains.currentLocation">
+                <td>{{trainDetails.trainNumber}}</td>
+                <td>{{trainDetails.trainName}}</td>
+                <td>{{trainDetails.arrivalTime | date}}</td>
+                <td>{{trainDetails.departureTime | date}}</td>
+                <td>{{trainDetails.originStationCd}}</td>
+                <td>{{trainDetails.destinationStationCd}}</td>
+                <td *ngFor="let location of trainDetails.currentLocation">
                     {{location}}
                 </td>
                 <!-- <td><button (click)="updateTodo(todo.id)" class="btn btn-success">Update</button></td>
