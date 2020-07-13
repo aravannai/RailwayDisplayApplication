@@ -32,7 +32,13 @@ public class TrainDetailsController {
 	
 	@GetMapping("/searchByTrainDetails/trainNumber/{trainNumber}/trainName/{trainName}")
 	public TrainDetails searchByTrainDetails(@PathVariable("trainNumber") int trainNumber, @PathVariable("trainName") String trainName) {
-		return trainDetailsService.getByTrainDetails(trainNumber, trainName);
+		TrainDetails trains = trainDetailsService.getByTrainDetails(trainNumber, trainName);
+		if(null != trains) { 
+			return trains;
+		}else {
+			throw new RuntimeException("Some error occurred");
+		}
+		
 	}
 	
 }

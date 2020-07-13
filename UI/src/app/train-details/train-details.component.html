@@ -1,4 +1,7 @@
 <div class="container">
+    <div class="alert alert-warning" *ngIf='invalidValue'>{{errorMessage}}</div>
+</div>
+<div class="container" *ngIf='trainDetails'>
     <table class="table">
         <thead>
             <tr>

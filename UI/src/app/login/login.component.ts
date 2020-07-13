@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   username=''
   password = ''
-  errorMessage: 'Invalid credentials'
+  errorMessage='Invalid credentials'
   invalidLogin = false
   constructor(private router: Router, private authenticationService: HardcodedAutheticationService, private basicAuthenticationService: BasicauthenticationService) { }
 
@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
         this.invalidLogin = false;
       } else{
         this.invalidLogin = true;
+        this.errorMessage= 'Invalid credentials'
       }
   }
 
