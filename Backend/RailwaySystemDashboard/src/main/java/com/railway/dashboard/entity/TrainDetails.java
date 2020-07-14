@@ -14,14 +14,14 @@ public class TrainDetails implements Serializable {
 	private String originStationCd;
 	private String destinationStationCd;
 	
-	private List<String> currentLocation;
+	private String currentLocation;
 	
 	public TrainDetails() {
 		
 	}
 	
 	public TrainDetails(Integer trainNumber, String trainName, Date arrivalTime, Date departureTime, String originStationCd,
-			String destinationStationCd, List<String> currentLocation) {
+			String destinationStationCd, String currentLocation) {
 		super();
 		this.trainNumber = trainNumber;
 		this.trainName = trainName;
@@ -67,10 +67,11 @@ public class TrainDetails implements Serializable {
 	public void setDestinationStationCd(String destinationStationCd) {
 		this.destinationStationCd = destinationStationCd;
 	}
-	public List<String> getCurrentLocation() {
+	public String getCurrentLocation() {
 		return currentLocation;
 	}
-	public void setCurrentLocation(List<String> currentLocation) {
+
+	public void setCurrentLocation(String currentLocation) {
 		this.currentLocation = currentLocation;
 	}
 

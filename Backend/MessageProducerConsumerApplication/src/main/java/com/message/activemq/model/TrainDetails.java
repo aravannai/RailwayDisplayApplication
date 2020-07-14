@@ -5,9 +5,7 @@ package com.message.activemq.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -28,14 +26,14 @@ public class TrainDetails implements Serializable {
 	private String originStationCd;
 	private String destinationStationCd;
 	
-	private List<String> currentLocation;
+	private String currentLocation;
 	
 	public TrainDetails() {
 		
 	}
 	
 	public TrainDetails(int trainNumber, String trainName, Date arrivalTime, Date departureTime, String originStationCd,
-			String destinationStationCd, List<String> currentLocation) {
+			String destinationStationCd, String currentLocation) {
 		super();
 		this.trainNumber = trainNumber;
 		this.trainName = trainName;
@@ -45,6 +43,9 @@ public class TrainDetails implements Serializable {
 		this.destinationStationCd = destinationStationCd;
 		this.currentLocation = currentLocation;
 	}
+
+
+
 	public int getTrainNumber() {
 		return trainNumber;
 	}
@@ -81,10 +82,11 @@ public class TrainDetails implements Serializable {
 	public void setDestinationStationCd(String destinationStationCd) {
 		this.destinationStationCd = destinationStationCd;
 	}
-	public List<String> getCurrentLocation() {
+	public String getCurrentLocation() {
 		return currentLocation;
 	}
-	public void setCurrentLocation(List<String> currentLocation) {
+
+	public void setCurrentLocation(String currentLocation) {
 		this.currentLocation = currentLocation;
 	}
 
@@ -99,20 +101,7 @@ public class TrainDetails implements Serializable {
 			jsonInfo.put("departureTime", this.departureTime);
 			jsonInfo.put("originStation", this.originStationCd);
 			jsonInfo.put("destinationStation", this.destinationStationCd);
-
-			JSONArray locationArray = new JSONArray();
-			if (this.currentLocation != null) {
-				this.currentLocation.forEach(location -> {
-					JSONObject subJson = new JSONObject();
-					try {
-						subJson.put("currentLocation", location);
-					} catch (JSONException e) {
-					}
-
-					locationArray.put(subJson);
-				});
-			}
-			jsonInfo.put("trainDetails", locationArray);
+			jsonInfo.put("currentLocation", this.currentLocation);
 		} catch (JSONException e1) {}
 		
 		return jsonInfo.toString();

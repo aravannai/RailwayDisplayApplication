@@ -22,11 +22,8 @@
                 <td>{{trainDetails.departureTime | date}}</td>
                 <td>{{trainDetails.originStationCd}}</td>
                 <td>{{trainDetails.destinationStationCd}}</td>
-                <td *ngFor="let location of trainDetails.currentLocation">
-                    {{location}}
-                </td>
-                <!-- <td><button (click)="updateTodo(todo.id)" class="btn btn-success">Update</button></td>
-                <td><button (click)="deleteTodo(todo.id)" class="btn btn-warning">Delete</button></td> -->
+                <td>{{trains.currentLocation}}</td>
+                
             </tr>
         </tbody>
 

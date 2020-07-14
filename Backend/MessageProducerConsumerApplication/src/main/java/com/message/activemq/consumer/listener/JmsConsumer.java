@@ -17,7 +17,7 @@ public class JmsConsumer {
 	public void receive(com.message.activemq.model.TrainDetails trainDetails) {
 		System.out.println("Received Message: " + trainDetails);
 		
-		if(trainDetails.getCurrentLocation().size()==1) {
+		if(trainDetails.getCurrentLocation().equalsIgnoreCase(trainDetails.getOriginStationCd())) {
 			trainDetailsRepository.save(new TrainDetails(
 					trainDetails.getTrainNumber(), trainDetails.getTrainName(), 
 					trainDetails.getArrivalTime(), trainDetails.getDepartureTime(), 
@@ -25,13 +25,11 @@ public class JmsConsumer {
 					trainDetails.getCurrentLocation()));
 		} else {
 			TrainDetails updateTrainDetails = trainDetailsRepository.findById(trainDetails.getTrainNumber()).get();
-			if(updateTrainDetails != null) {
-				for(String currentInfo: trainDetails.getCurrentLocation()) {
-					updateTrainDetails.getCurrentLocation().add(currentInfo);
-				}
+			if(null != updateTrainDetails) {
+				updateTrainDetails.setCurrentLocation(trainDetails.getCurrentLocation());
 				trainDetailsRepository.save(updateTrainDetails);
 			}
-			
+
 		}
 		
 	}

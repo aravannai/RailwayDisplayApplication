@@ -29,14 +29,12 @@ public class MongoDBTest {
     public void init() {
 
         repository.deleteAll();
-        List<String> currentLocation = new ArrayList<String>();
-        currentLocation.add("SA");
         
 
-        repository.insert(new TrainDetails(123,"Chennai Express", new Date(), new Date(), "MAS", "CBE", currentLocation));
-        repository.insert(new TrainDetails(456,"Kovai Express", new Date(), new Date(), "CBE", "MAS", currentLocation));
-        repository.insert(new TrainDetails(789,"Alleppey Express", new Date(), new Date(), "ALW", "MAS", currentLocation));
-        repository.insert(new TrainDetails(113,"Chennai Express", new Date(), new Date(), "MAS", "TRV", currentLocation));
+        repository.insert(new TrainDetails(123,"Chennai Express", new Date(), new Date(), "MAS", "CBE", "SA"));
+        repository.insert(new TrainDetails(456,"Kovai Express", new Date(), new Date(), "CBE", "MAS", "SA"));
+        repository.insert(new TrainDetails(789,"Alleppey Express", new Date(), new Date(), "ALW", "MAS", "SA"));
+        repository.insert(new TrainDetails(113,"Chennai Express", new Date(), new Date(), "MAS", "TRV", "SA"));
         
     }
 
