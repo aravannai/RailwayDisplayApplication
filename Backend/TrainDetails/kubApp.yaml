@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: traindetailservice
+  labels:
+    app: traindetailservice
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: traindetailservice
+  template:
+    metadata:
+      labels:
+        app: traindetailservice
+    spec:
+      containers:
+      - name: traindetailservice
+        image: traindetailservice:1.0 
+        imagePullPolicy: Never
+        env:
+        - name: MONGODB_HOST
+          value: mongodb
+        ports:
+        - containerPort: 8080
